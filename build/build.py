@@ -514,7 +514,7 @@ def main():
       config_args += ["--config=nonccl"]
 
   command = ([bazel_path] + args.bazel_startup_options +
-    ["run", "--verbose_failures=true"] + config_args +
+    ["run", "--verbose_failures=true", "--copt=-O0",  "--copt=-g"] + config_args +
     [":build_wheel", "--",
     f"--output_path={output_path}",
     f"--cpu={wheel_cpu}"])

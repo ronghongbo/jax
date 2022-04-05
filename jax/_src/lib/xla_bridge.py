@@ -222,6 +222,8 @@ register_backend_factory(
 if iree is not None:
   register_backend_factory("iree", iree.iree_client_factory, priority=-100)
 
+register_backend_factory('plaidml_cpu', xla_client.make_plaidml_cpu_client,
+                         priority=300)
 
 def backends():
   global _backends
